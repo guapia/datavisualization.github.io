@@ -1,7 +1,7 @@
 
 let data = {
   "filter": {
-    "series": "seriesA,seriesD,seriesC",
+    "series": "seriesA,seriesB,seriesC,seriesD",
     'rules': [
       {
         "express": "",
@@ -291,8 +291,24 @@ let data = {
     }
   ]
 };
-let dataModel = new android.test.DataModel(data);
 document.addEventListener('DOMContentLoaded', function () {
+  var calculate_button = document.querySelector('#calculate_button');
+  var chartcontainer = document.querySelector('#chart');
+  
+
+  var editor_left = ace.edit("chartmodel_layout");
+  editor_left.setTheme("ace/theme/tomorrow");
+  editor_left.session.setMode("ace/mode/javascript");
+  editor_left.renderer.setOption('showLineNumbers', true);
+  editor_left.setValue(JSON.stringify(data,null,4));
+  calculate_button.onclick = function (event) {
+    var obj = editor_left.getValue();
+    chartcontainer.innerHTML = '';
+    let dataModel = new android.test.DataModel(JSON.parse(obj));
+    var chartlayout = new android.test.ChartLayout(null);
+    chartlayout.attachElement(document.getElementById("chart"), dataModel);
+  };
+  let dataModel = new android.test.DataModel(data);
   var chartlayout = new android.test.ChartLayout(null);
   chartlayout.attachElement(document.getElementById("chart"), dataModel);
 });
