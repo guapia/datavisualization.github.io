@@ -43,7 +43,7 @@ let data = {
     "angle": {
       "field": "sales"
     },
-    "stack": true,
+    "stack": false,
     "radial": false
   },
   "series": [
