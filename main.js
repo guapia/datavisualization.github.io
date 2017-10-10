@@ -2,7 +2,7 @@
 let data = {
   "filter": {
     "series": "seriesA,seriesB,seriesC,seriesD",
-    'rules': [
+    "rules": [
       {
         "express": "",
         "field": ""
@@ -12,21 +12,13 @@ let data = {
   "encoding": {
     "x": {
       "field": "country",
-      "type": "Ordinal",
+
       "band": true
     },
     "y": {
       "field": "sales",
       "type": "Linear"
     },
-    // "color": {
-    //   "field": "acitve",
-    //   "type": "Ordinal",
-    //   "range": [
-    //     "#FFB6C1",
-    //     "#00FFFF"
-    //   ]
-    // },
     "size": {
       "field": "country",
       "range": [
@@ -55,48 +47,47 @@ let data = {
         {
           "country": "US",
           "downloads": 10,
-          "sales": 1710.682638109698,
+          "sales": 211110.682638109698,
           "expenses": 1380.5286353797196,
           "active": "false"
         },
         {
           "country": "Germany",
           "downloads": 7429,
-          "sales": +2170.244111853545,
+          "sales": 211720.244111853545,
           "expenses": 2819.490334882582,
           "active": "false"
         },
         {
           "country": "UK",
           "downloads": 1616,
-          "sales": +9711.725374596032,
+          "sales": 171111.725374596032,
           "expenses": 3774.1947931859045,
           "active": "false"
         },
         {
           "country": "Japan",
           "downloads": 18643,
-          "sales": 4111.63710148669,
+          "sales": 211331.63710148669,
           "expenses": 2424.9636513659702,
           "active": "false"
         },
         {
           "country": "Italy",
           "downloads": 19949,
-          "sales": 9171.989879079592,
+          "sales": 911111.989879079592,
           "expenses": 2983.639492172271,
           "active": "false"
         },
         {
           "country": "Greece",
           "downloads": 13505,
-          "sales": 1116.896624379556,
+          "sales": 411226.896624379556,
           "expenses": 2264.6904213831076,
           "active": "false"
         }
       ]
-    }
-    ,
+    },
     {
       "name": "seriesB",
       "charttype": "Bar",
@@ -207,14 +198,14 @@ let data = {
         {
           "country": "Germany",
           "downloads": 7429,
-          "sales": +2397.244111853545,
+          "sales": 2397.244111853545,
           "expenses": 2819.490334882582,
           "active": "false"
         },
         {
           "country": "UK",
           "downloads": 1616,
-          "sales": +9627.725374596032,
+          "sales": 9627.725374596032,
           "expenses": 3774.1947931859045,
           "active": "false"
         },
@@ -255,14 +246,14 @@ let data = {
         {
           "country": "Germany",
           "downloads": 7429,
-          "sales": +2397.244111853545,
+          "sales": 2397.244111853545,
           "expenses": 2819.490334882582,
           "active": "false"
         },
         {
           "country": "UK",
           "downloads": 1616,
-          "sales": +9627.725374596032,
+          "sales": 9627.725374596032,
           "expenses": 3774.1947931859045,
           "active": "false"
         },
@@ -294,13 +285,13 @@ let data = {
 document.addEventListener('DOMContentLoaded', function () {
   var calculate_button = document.querySelector('#calculate_button');
   var chartcontainer = document.querySelector('#chart');
-  
+
 
   var editor_left = ace.edit("chartmodel_layout");
   editor_left.setTheme("ace/theme/tomorrow");
   editor_left.session.setMode("ace/mode/javascript");
   editor_left.renderer.setOption('showLineNumbers', true);
-  editor_left.setValue(JSON.stringify(data,null,4));
+  editor_left.setValue(JSON.stringify(data, null, 4));
   calculate_button.onclick = function (event) {
     var obj = editor_left.getValue();
     chartcontainer.innerHTML = '';
