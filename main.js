@@ -22,8 +22,8 @@ let data = {
     "size": {
       "field": "country",
       "range": [
-        10,
-        30
+        40,
+        60
       ]
     },
     "tooltips": {
