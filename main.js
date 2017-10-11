@@ -297,8 +297,12 @@ document.addEventListener('DOMContentLoaded', function () {
     let dataModel = new android.test.DataModel(JSON.parse(obj));
     var chartlayout = new android.test.ChartLayout(null);
     chartlayout.attachElement(document.getElementById("chart"), dataModel);
+    chartlayout.beginChartAnimation();
+    
   };
   let dataModel = new android.test.DataModel(data);
   var chartlayout = new android.test.ChartLayout(null);
   chartlayout.attachElement(document.getElementById("chart"), dataModel);
+  chartlayout.beginChartAnimation();
+  
 });
