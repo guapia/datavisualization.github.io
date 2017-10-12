@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     samples.push(new Node('stack', "", data2));
     samples.push(new Node('radial', "", data3));
     samples.push(new Node('negativevalues', "", data4));
+    samples.push(new Node('sin&cos', "", data5));
     
     
     samples.forEach(e => {

@@ -1,5 +1,5 @@
 
-let data= {
+let data = {
     "filter": {
         "series": "seriesB,seriesD",
         "rules": [
@@ -287,7 +287,7 @@ let data= {
     ]
 };
 
-let data1= {
+let data1 = {
     "filter": {
         "series": "seriesB,seriesD",
         "rules": [
@@ -590,7 +590,7 @@ for (let i = 0; i < 100; ++i) {
 }
 
 
-let data2= {
+let data2 = {
     "filter": {
         "series": "seriesB,seriesD",
         "rules": [
@@ -879,7 +879,7 @@ let data2= {
 };
 
 
-let data3= {
+let data3 = {
     "filter": {
         "series": "seriesB,seriesD",
         "rules": [
@@ -1167,7 +1167,7 @@ let data3= {
     ]
 };
 
-let data4= {
+let data4 = {
     "filter": {
         "series": "seriesB,seriesD,seriesE,seriesC",
         "rules": [
@@ -1462,10 +1462,87 @@ for (let i = 0; i < 10; ++i) {
             {
                 "country": "label" + i,
                 "downloads": -Math.random() * 30000,
-                "sales": Math.random() * 30000*(Math.random() * 10 > 5 ? 1:-1),
+                "sales": Math.random() * 30000 * (Math.random() * 10 > 5 ? 1 : -1),
                 "expenses": -Math.random() * 30000,
                 "active": -Math.random() * 10 > 5 ? "true" : "false"
             }
         );
     }
+}
+
+let data5 = {
+    "filter": {
+        "series": "seriesA,seriesB",
+        "rules": [
+            {
+                "express": "",
+                "field": ""
+            }
+        ]
+    },
+    "encoding": {
+
+        "x": {
+            "field": "x",
+
+            "type": "Linear"
+        },
+        "y": {
+            "field": "y",
+            "type": "Linear"
+        },
+
+        "stack": true,
+        "radial": false
+    },
+    "series": [
+        {
+            "name": "seriesA",
+            "charttype": "Line",
+            "style": {},
+            "data": [
+
+            ]
+        },
+        {
+            "name": "seriesB",
+            "charttype": "Line",
+            "style": {},
+            "data": [
+
+            ]
+        }
+    ]
+};
+
+for (let i = 0; i < 100; i+=0.1) {
+    data5.series[0].data.push(
+        {
+            "x": i,
+            'y': Math.sin(i)
+        }
+    );
+    // data5.series[1].data.push(
+    //     {
+    //         "x": i*2,
+    //         'y': Math.cos(i)*2
+    //     }
+    // );
+
+}
+
+for (let i = -1; i < 1; i+=0.01) {
+    data5.series[1].data.push(
+        {
+            "x": i*50+50,
+            'y': Math.atan(i)
+        }
+    );
+    // data5.series[1].data.push(
+    //     {
+    //         "x": i*2,
+    //         'y': Math.cos(i)*2
+    //     }
+    // );
+
 }
