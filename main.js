@@ -1,8 +1,8 @@
 
-let data ={
+let data = {
   "filter": {
-      "series": "seriesA,seriesB,seriesC,seriesD",
-      "rules": [
+    "series": "seriesA,seriesB,seriesC,seriesD",
+    "rules": [
           {
               "express": "",
               "field": ""
@@ -14,6 +14,11 @@ let data ={
           "field": "country",
           "band": true
       },
+    //   "x": {
+    //     "field": "expenses",
+        
+    //     "type":"Linear"
+    // },
       "y": {
           "field": "sales",
           "type": "Linear"
@@ -21,8 +26,8 @@ let data ={
       "size": {
           "field": "country",
           "range": [
-              40,
-              60
+              10,
+              20
           ]
       },
       "tooltips": {
@@ -281,6 +286,20 @@ let data ={
       }
   ]
 };
+
+for(let i =0; i <10; ++i){
+  for(let ser of data.series){
+    ser.data.push(
+      {
+        "country": "label"+i,
+        "downloads": Math.random() * 30000,
+        "sales": Math.random() * 30000,
+        "expenses": Math.random() * 30000,
+        "active": Math.random() * 10 >5?"true":"false"
+    }
+    );
+  }
+}
 document.addEventListener('DOMContentLoaded', function () {
   var calculate_button = document.querySelector('#calculate_button');
   var chartcontainer = document.querySelector('#chart');
@@ -304,5 +323,4 @@ document.addEventListener('DOMContentLoaded', function () {
   var chartlayout = new android.test.ChartLayout(null);
   chartlayout.attachElement(document.getElementById("chart"), dataModel);
   chartlayout.beginChartAnimation();
-  
 });
