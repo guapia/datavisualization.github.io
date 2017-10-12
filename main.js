@@ -1,326 +1,64 @@
 
-let data = {
-  "filter": {
-    "series": "seriesA,seriesB,seriesC,seriesD",
-    "rules": [
-          {
-              "express": "",
-              "field": ""
-          }
-      ]
-  },
-  "encoding": {
-      "x": {
-          "field": "country",
-          "band": true
-      },
-    //   "x": {
-    //     "field": "expenses",
-        
-    //     "type":"Linear"
-    // },
-      "y": {
-          "field": "sales",
-          "type": "Linear"
-      },
-      "size": {
-          "field": "country",
-          "range": [
-              10,
-              20
-          ]
-      },
-      "tooltips": {
-          "field": "cases"
-      },
-      "shape": {
-          "field": ""
-      },
-      "angle": {
-          "field": "sales"
-      },
-      "stack": false,
-      "radial": false
-  },
-  "series": [
-      {
-          "name": "seriesA",
-          "charttype": "Line",
-          "style": {},
-          "data": [
-              {
-                  "country": "US",
-                  "downloads": 10,
-                  "sales": 211110.6826381097,
-                  "expenses": 1380.5286353797196,
-                  "active": "false"
-              },
-              {
-                  "country": "Germany",
-                  "downloads": 7429,
-                  "sales": 211720.24411185354,
-                  "expenses": 2819.490334882582,
-                  "active": "false"
-              },
-              {
-                  "country": "UK",
-                  "downloads": 1616,
-                  "sales": 171111.72537459602,
-                  "expenses": 3774.1947931859045,
-                  "active": "false"
-              },
-              {
-                  "country": "Japan",
-                  "downloads": 18643,
-                  "sales": 211331.6371014867,
-                  "expenses": 2424.9636513659702,
-                  "active": "false"
-              },
-              {
-                  "country": "Italy",
-                  "downloads": 19949,
-                  "sales": 911111.9898790796,
-                  "expenses": 2983.639492172271,
-                  "active": "false"
-              },
-              {
-                  "country": "Greece",
-                  "downloads": 13505,
-                  "sales": 411226.89662437956,
-                  "expenses": 2264.6904213831076,
-                  "active": "false"
-              }
-          ]
-      },
-      {
-          "name": "seriesB",
-          "charttype": "Bar",
-          "data": [
-              {
-                  "country": "US",
-                  "downloads": 80000,
-                  "sales": 19142.08042154179,
-                  "expenses": 2724.6397434553837,
-                  "active": "true"
-              },
-              {
-                  "country": "Germany",
-                  "downloads": 11540,
-                  "sales": 9780.104103590214,
-                  "expenses": 334.7053658699783,
-                  "active": "true"
-              },
-              {
-                  "country": "UK",
-                  "downloads": 12215,
-                  "sales": 4831.6539016051975,
-                  "expenses": 251.1643115886275,
-                  "active": "true"
-              },
-              {
-                  "country": "Japan",
-                  "downloads": 15327,
-                  "sales": 6740.375719832419,
-                  "expenses": 4974.962122643194,
-                  "active": "true"
-              },
-              {
-                  "country": "Italy",
-                  "downloads": 19767,
-                  "sales": 4287.620232395823,
-                  "expenses": 2074.331648946357,
-                  "active": "true"
-              },
-              {
-                  "country": "Greece",
-                  "downloads": 58,
-                  "sales": 4202.873874843627,
-                  "expenses": 487.29429967201423,
-                  "active": "true"
-              }
-          ]
-      },
-      {
-          "charttype": "Scatter",
-          "name": "seriesC",
-          "data": [
-              {
-                  "country": "US",
-                  "downloads": 5157,
-                  "sales": 3327.682638109698,
-                  "expenses": 8380.52863537972,
-                  "active": "false"
-              },
-              {
-                  "country": "Germany",
-                  "downloads": 7429,
-                  "sales": 2397.244111853545,
-                  "expenses": 2819.490334882582,
-                  "active": "false"
-              },
-              {
-                  "country": "UK",
-                  "downloads": 1616,
-                  "sales": 9627.725374596032,
-                  "expenses": 3774.1947931859045,
-                  "active": "false"
-              },
-              {
-                  "country": "Japan",
-                  "downloads": 18643,
-                  "sales": 4531.63710148669,
-                  "expenses": 2424.9636513659702,
-                  "active": "false"
-              },
-              {
-                  "country": "Italy",
-                  "downloads": 19949,
-                  "sales": 9927.989879079592,
-                  "expenses": 2983.639492172271,
-                  "active": "false"
-              },
-              {
-                  "country": "Greece",
-                  "downloads": 13505,
-                  "sales": 526.8966243795559,
-                  "expenses": 2264.6904213831076,
-                  "active": "false"
-              }
-          ]
-      },
-      {
-          "name": "seriesD",
-          "charttype": "Bar",
-          "data": [
-              {
-                  "country": "US",
-                  "downloads": 3157,
-                  "sales": 7327.682638109698,
-                  "expenses": 1380.5286353797196,
-                  "active": "false"
-              },
-              {
-                  "country": "Germany",
-                  "downloads": 7429,
-                  "sales": 2397.244111853545,
-                  "expenses": 2819.490334882582,
-                  "active": "false"
-              },
-              {
-                  "country": "UK",
-                  "downloads": 1616,
-                  "sales": 9627.725374596032,
-                  "expenses": 3774.1947931859045,
-                  "active": "false"
-              },
-              {
-                  "country": "Japan",
-                  "downloads": 18643,
-                  "sales": 4531.63710148669,
-                  "expenses": 2424.9636513659702,
-                  "active": "false"
-              },
-              {
-                  "country": "Italy",
-                  "downloads": 19949,
-                  "sales": 9927.989879079592,
-                  "expenses": 2983.639492172271,
-                  "active": "false"
-              },
-              {
-                  "country": "Greece",
-                  "downloads": 13505,
-                  "sales": 526.8966243795559,
-                  "expenses": 2264.6904213831076,
-                  "active": "false"
-              }
-          ]
-      },
-      {
-          "name": "seriesE",
-          "charttype": "Bar",
-          "data": [
-              {
-                  "country": "US",
-                  "downloads": 80000,
-                  "sales": 19142.08042154179,
-                  "expenses": 2724.6397434553837,
-                  "active": "true"
-              },
-              {
-                  "country": "Germany",
-                  "downloads": 11540,
-                  "sales": 9780.104103590214,
-                  "expenses": 334.7053658699783,
-                  "active": "true"
-              },
-              {
-                  "country": "UK",
-                  "downloads": 12215,
-                  "sales": 4831.6539016051975,
-                  "expenses": 251.1643115886275,
-                  "active": "true"
-              },
-              {
-                  "country": "Japan",
-                  "downloads": 15327,
-                  "sales": 6740.375719832419,
-                  "expenses": 4974.962122643194,
-                  "active": "true"
-              },
-              {
-                  "country": "Italy",
-                  "downloads": 19767,
-                  "sales": 4287.620232395823,
-                  "expenses": 2074.331648946357,
-                  "active": "true"
-              },
-              {
-                  "country": "Greece",
-                  "downloads": 58,
-                  "sales": 4202.873874843627,
-                  "expenses": 487.29429967201423,
-                  "active": "true"
-              }
-          ]
-      }
-  ]
-};
-
-for(let i =0; i <10; ++i){
-  for(let ser of data.series){
-    ser.data.push(
-      {
-        "country": "label"+i,
-        "downloads": Math.random() * 30000,
-        "sales": Math.random() * 30000,
-        "expenses": Math.random() * 30000,
-        "active": Math.random() * 10 >5?"true":"false"
-    }
-    );
-  }
-}
 document.addEventListener('DOMContentLoaded', function () {
-  var calculate_button = document.querySelector('#calculate_button');
-  var chartcontainer = document.querySelector('#chart');
+    var calculate_button = document.querySelector('#calculate_button');
+    var chartcontainer = document.querySelector('#chart');
 
+    var editor_left = ace.edit("chartmodel_layout");
+    editor_left.setTheme("ace/theme/tomorrow");
+    editor_left.session.setMode("ace/mode/javascript");
+    editor_left.renderer.setOption('showLineNumbers', true);
+    editor_left.setValue(JSON.stringify(data, null, 4));
 
-  var editor_left = ace.edit("chartmodel_layout");
-  editor_left.setTheme("ace/theme/tomorrow");
-  editor_left.session.setMode("ace/mode/javascript");
-  editor_left.renderer.setOption('showLineNumbers', true);
-  editor_left.setValue(JSON.stringify(data, null, 4));
-  calculate_button.onclick = function (event) {
-    var obj = editor_left.getValue();
-    chartcontainer.innerHTML = '';
-    let dataModel = new android.test.DataModel(JSON.parse(obj));
+    var samples = [];
+    var sample_item_container = document.querySelector('#sample_item_container');
+    samples.push(new Node('multi-series-type', "", data));
+    samples.push(new Node('big_amount', "", data1));
+    samples.push(new Node('stack', "", data2));
+    samples.push(new Node('radial', "", data3));
+    samples.push(new Node('negativevalues', "", data4));
+    
+    
+    samples.forEach(e => {
+        var item = document.createElement('div');
+        item.className = "item";
+
+        item.innerText = e.name;
+        item.onclick = function (event) {
+            if (e.value) {
+                chartcontainer.innerHTML = '';
+                editor_left.setValue(JSON.stringify(e.value, null, 4));
+                let dataModel = new android.test.DataModel(e.value);
+                var chartlayout = new android.test.ChartLayout(null);
+                chartlayout.attachElement(document.getElementById("chart"), dataModel);
+                chartlayout.beginChartAnimation();
+            }
+        };
+        sample_item_container.appendChild(item);
+
+    });
+    calculate_button.onclick = function (event) {
+        var obj = editor_left.getValue();
+        chartcontainer.innerHTML = '';
+        let dataModel = new android.test.DataModel(JSON.parse(obj));
+        var chartlayout = new android.test.ChartLayout(null);
+        chartlayout.attachElement(document.getElementById("chart"), dataModel);
+        chartlayout.beginChartAnimation();
+    };
+    let dataModel = new android.test.DataModel(data);
     var chartlayout = new android.test.ChartLayout(null);
     chartlayout.attachElement(document.getElementById("chart"), dataModel);
     chartlayout.beginChartAnimation();
-    
-  };
-  let dataModel = new android.test.DataModel(data);
-  var chartlayout = new android.test.ChartLayout(null);
-  chartlayout.attachElement(document.getElementById("chart"), dataModel);
-  chartlayout.beginChartAnimation();
+    initside();
 });
+
+var initside = function () {
+
+
+}
+
+
+var Node = function (name, desc, value) {
+    this.name = name;
+    this.value = value;
+    this.desc = desc;
+}
