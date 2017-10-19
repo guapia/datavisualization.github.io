@@ -12,11 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
     var samples = [];
     var sample_item_container = document.querySelector('#sample_item_container');
     samples.push(new Node('multi-series-type', "", data));
+    samples.push(new Node('AreaStack', "", data6));
+
     samples.push(new Node('big_amount', "", data1));
     samples.push(new Node('stack', "", data2));
     samples.push(new Node('radial', "", data3));
     samples.push(new Node('negativevalues', "", data4));
     samples.push(new Node('sin&cos', "", data5));
+    samples.push(new Node('linear', "", data7));
+    samples.push(new Node('Date', "", data8));
     
     
     samples.forEach(e => {
