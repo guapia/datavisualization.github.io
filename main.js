@@ -1,4 +1,20 @@
 
+var currentNode=null;
+ var cartesian_func = function(data){
+    let dataModel = new android.test.cartesian.DataModel(data);
+    var chartlayout = new android.test.cartesian.ChartLayout(null);
+    chartlayout.attachElement(document.getElementById("chart"),"Canvas", dataModel);
+    // chartlayout.beginChartAnimation();
+    return chartlayout;
+}
+
+var hierarchical_func = function(data){
+    let dataModel = new android.test.hierarchical.DataModel(data);
+    var chartlayout = new android.test.hierarchical.ChartLayout(null);
+    chartlayout.attachElement(document.getElementById("chart"),"Canvas", dataModel);
+    // chartlayout.beginChartAnimation();
+    return chartlayout;
+}
 document.addEventListener('DOMContentLoaded', function () {
     var calculate_button = document.querySelector('#calculate_button');
     var chartcontainer = document.querySelector('#chart');
@@ -11,31 +27,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var samples = [];
     var sample_item_container = document.querySelector('#sample_item_container');
-    samples.push(new Node('multi-series-type', "", data));
-    samples.push(new Node('AreaStack', "", data6));
+   
+    samples.push(new Node('multi-series-type', "cartesian", data,cartesian_func));
+    samples.push(new Node('AreaStack', "cartesian", data6,cartesian_func));
+    samples.push(new Node('big_amount', "cartesian", data1,cartesian_func));
+    samples.push(new Node('stack', "cartesian", data2,cartesian_func));
+    samples.push(new Node('radial', "cartesian", data3,cartesian_func));
+    samples.push(new Node('negativevalues', "cartesian", data4,cartesian_func));
+    samples.push(new Node('sin&cos', "cartesian", data5,cartesian_func));
+    samples.push(new Node('linear', "cartesian", data7,cartesian_func));
+    samples.push(new Node('Date', "cartesian", data8,cartesian_func));
 
-    samples.push(new Node('big_amount', "", data1));
-    samples.push(new Node('stack', "", data2));
-    samples.push(new Node('radial', "", data3));
-    samples.push(new Node('negativevalues', "", data4));
-    samples.push(new Node('sin&cos', "", data5));
-    samples.push(new Node('linear', "", data7));
-    samples.push(new Node('Date', "", data8));
+    samples.push(new Node('TreeMap', "hierarchical", h_data,hierarchical_func));
+    samples.push(new Node('SunBurst', "hierarchical", h_data1,hierarchical_func));
     
     
-    samples.forEach(e => {
+    samples.forEach(node => {
         var item = document.createElement('div');
         item.className = "item";
 
-        item.innerText = e.name;
+        item.innerText = node.name;
         item.onclick = function (event) {
-            if (e.value) {
+            if (node.value) {
                 chartcontainer.innerHTML = '';
-                editor_left.setValue(JSON.stringify(e.value, null, 4));
-                let dataModel = new android.test.DataModel(e.value);
-                var chartlayout = new android.test.ChartLayout(null);
-                chartlayout.attachElement(document.getElementById("chart"), dataModel);
-                chartlayout.beginChartAnimation();
+                editor_left.setValue(JSON.stringify(node.value, null, 4));
+        
+                node.fun(node.value);
+                currentNode= node;
             }
         };
         sample_item_container.appendChild(item);
@@ -44,26 +62,27 @@ document.addEventListener('DOMContentLoaded', function () {
     calculate_button.onclick = function (event) {
         var obj = editor_left.getValue();
         chartcontainer.innerHTML = '';
-        let dataModel = new android.test.DataModel(JSON.parse(obj));
-        var chartlayout = new android.test.ChartLayout(null);
-        chartlayout.attachElement(document.getElementById("chart"), dataModel);
-        chartlayout.beginChartAnimation();
+        if(currentNode.desc=='cartesian'){
+            cartesian_func(JSON.parse(obj)).beginChartAnimation();
+        }else{
+            hierarchical_func(JSON.parse(obj)).beginChartAnimation();
+            
+        }
+      
     };
-    let dataModel = new android.test.DataModel(data);
-    var chartlayout = new android.test.ChartLayout(null);
-    chartlayout.attachElement(document.getElementById("chart"), dataModel);
-    chartlayout.beginChartAnimation();
-    initside();
+    // let dataModel = new android.test.cartesian.DataModel(data);
+    // var chartlayout = new android.test.cartesian.ChartLayout(null);
+    // chartlayout.attachElement(document.getElementById("chart"),"Canvas", dataModel);
+    currentNode =samples[0];
+    currentNode.fun(currentNode.value);
+    // chartlayout.beginChartAnimation();
 });
 
-var initside = function () {
 
-
-}
-
-
-var Node = function (name, desc, value) {
+var Node = function (name, desc, value,fun) {
     this.name = name;
     this.value = value;
     this.desc = desc;
+    this.fun = fun;
+
 }

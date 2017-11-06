@@ -380,7 +380,7 @@ let data1 = {
         },
         {
             "name": "seriesB",
-            "charttype": "Bar",
+            "charttype": "Line",
             "data": [
                 {
                     "country": "US",
@@ -427,7 +427,7 @@ let data1 = {
             ]
         },
         {
-            "charttype": "Scatter",
+            "charttype": "Area",
             "name": "seriesC",
             "data": [
                 {
@@ -476,7 +476,7 @@ let data1 = {
         },
         {
             "name": "seriesD",
-            "charttype": "Bar",
+            "charttype": "Area",
             "data": [
                 {
                     "country": "US",
@@ -573,7 +573,7 @@ let data1 = {
     ]
 };
 
-for (let i = 0; i < 150; ++i) {
+for (let i = 0; i < 3000; ++i) {
     for (let ser of data1.series) {
         ser.data.push(
             {
